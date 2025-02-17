@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_free_2d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 20:54:51 by ktieu             #+#    #+#             */
-/*   Updated: 2025/02/17 13:34:50 by hiennguy         ###   ########.fr       */
+/*   Created: 2025/01/27 20:48:02 by hiennguy          #+#    #+#             */
+/*   Updated: 2025/02/14 11:26:49 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_free_2d(char **all_words)
 {
-	size_t			i;
-	unsigned char	*str1;
-	unsigned char	*str2;
+	int	i;
 
-	str1 = (unsigned char *) s1;
-	str2 = (unsigned char *) s2;
+	if (!all_words)
+		return ;
 	i = 0;
-	while (str1[i] == str2[i] && str1[i])
+	while (all_words[i])
+	{
+		free(all_words[i]);
 		i++;
-	return (str1[i] - str2[i]);
+	}
+	free(all_words);
 }

@@ -51,7 +51,7 @@ int32_t main(int argc, char **argv)
 	mlx_t* mlx;
 
 	//validate argument
-	if (argc < 2 || ft_strcmp(argv[1], "mandelbrot") != 0)
+	if (argc < 2 || ft_strncmp(argv[1], "mandelbrot", 12) != 0)
 	{
 		ft_putstr_fd("Invalid input", 2);
 		ft_putstr_fd("./fractol mandelbrot", 2);

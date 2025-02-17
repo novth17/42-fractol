@@ -28,7 +28,7 @@ bonus: $(OBJS) $(OBJS_BONUS)
 
 %.o: %.c
 	@echo "Now compiling $< to make $@"
-	$(CC) $(CFLAG) -c $< -o $@
+	@$(CC) $(CFLAG) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS) $(OBJS_BONUS)

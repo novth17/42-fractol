@@ -3,7 +3,7 @@ NAME = libft.a
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Source and Object Files
 SOURCES = src/ft_is/ft_isalnum.c \
@@ -48,7 +48,6 @@ SOURCES = src/ft_is/ft_isalnum.c \
           src/ft_string/ft_strlen.c \
           src/ft_string/ft_strmapi.c \
           src/ft_string/ft_strncmp.c \
-		  src/ft_string/ft_strcmp.c \
           src/ft_string/ft_strnstr.c \
           src/ft_string/ft_strrchr.c \
           src/ft_string/ft_strtrim.c \
@@ -56,7 +55,9 @@ SOURCES = src/ft_is/ft_isalnum.c \
           src/ft_to/ft_atoi.c \
           src/ft_to/ft_itoa.c \
           src/ft_to/ft_tolower.c \
-          src/ft_to/ft_toupper.c
+          src/ft_to/ft_toupper.c \
+		  src/ft_string/ft_free_2d.c \
+		  src/ft_string/ft_free_3d.c
 
 # Adjust paths for object files
 OBJS = $(SOURCES:.c=.o)
@@ -72,18 +73,18 @@ $(NAME): $(OBJS)
 # Rule to build object files
 %.o: %.c
 	@mkdir -p $(dir $@)
-	@echo "Compiling $< to create $@"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiling $< to create $@" > /dev/null
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean target
 clean:
 	@rm -f $(OBJS)
-	@echo "All object files removed."
+	@echo "Libft clean success: All object files removed."
 
 # Full clean target
 fclean: clean
 	@rm -f $(NAME)
-	@echo "Library $(NAME) removed."
+	@echo "Libft fclean success: Library $(NAME) removed."
 
 # Recompile everything
 re: fclean all
