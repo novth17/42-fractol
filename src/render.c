@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 13:41:01 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 19:22:34 by hiennguy         ###   ########.fr       */
+/*   Created: 2025/02/18 20:01:42 by hiennguy          #+#    #+#             */
+/*   Updated: 2025/02/18 20:16:42 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "fractol.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+
+
+
+
+
+
+void	render_fractol(t_fractol *fractol)
 {
-	size_t	length;
-
-	length = ft_strlen(s);
-	write(fd, s, length);
+	if (fractol->f_type == "mandelbrot")
+		calculate_mandelbrot(fractol); // TODO
+	else
+		calculate_julia(fractol); // TODO
 }

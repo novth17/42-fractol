@@ -5,101 +5,44 @@
 
 #include "fractol.h"
 
-int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
-{
-    return (r << 24 | g << 16 | b << 8 | a);
-}
 
-void ft_randomize(void* param)
-{
-	(void)param;
-	for (uint32_t i = 0; i < image->width; ++i)
-	{
-		for (uint32_t y = 0; y < image->height; ++y)
-		{
-			uint32_t color = ft_pixel(
-				rand() % 0xFF, // R
-				rand() % 0xFF, // G
-				rand() % 0xFF, // B
-				rand() % 0xFF  // A
-			);
-			mlx_put_pixel(image, i, y, color);
-		}
-	}
-}
-
-void ft_hook(void* param)
-{
-	mlx_t* mlx = param;
-
-	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(mlx);
-	if (mlx_is_key_down(mlx, MLX_KEY_UP))
-		image->instances[0].y -= 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
-		image->instances[0].y += 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
-		image->instances[0].x -= 5;
-	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
-		image->instances[0].x += 5;
-}
-
-void	print_error(void)
+static void	print_error(void)
 {
 	ft_putstr_fd("Enter:\n./fractol mandelbrot OR \n./fractol julia <real_num><img_num>", 2);
 	exit(EXIT_FAILURE);
 }
 
+static void	print_fractol(t_fractol *f)
+{
+	printf("=== t_fractol Structure ===\n");
+	printf("MLX Address: %p\n", (void *)f->mlx);
+	printf("Image Address: %p\n", (void *)f->image);
+	printf("Fractal Type: %s\n", f->f_type ? f->f_type : "NULL");
+	printf("Min Complex: (%.3f, %.3f)\n", f->min.real, f->min.imag);
+	printf("Max Complex: (%.3f, %.3f)\n", f->max.real, f->max.imag);
+	printf("Julia Constant: (%.3f, %.3f)\n", f->julia_c.real, f->julia_c.imag);
+	printf("===========================\n");
+}
+
 int main (int argc, char **argv)
 {
+	t_fractol fractol;
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
-		printf("success");
-		
+		write(1 ,"success", 8);
 
+		init_fractol(&fractol, argv);
+
+		//render_fractol(&fractol);
+
+		print_fractol(&fractol);
+
+		mlx_loop(fractol.mlx);
+		mlx_terminate(fractol.mlx);
 	}
 	else
 	{
 		print_error();
 	}
+	return (EXIT_SUCCESS);
 }
-
-// int32_t main(int argc, char **argv)
-// {
-// 	mlx_t* mlx;
-
-// 	//validate argument
-// 	if (argc < 2 || ft_strncmp(argv[1], "mandelbrot", 12) != 0)
-// 	{
-// 		ft_putstr_fd("Invalid input", 2);
-// 		ft_putstr_fd("./fractol mandelbrot", 2);
-// 	}
-// 	else
-// 	{
-// 		// Gotta error check this stuff
-// 		if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
-// 		{
-// 			puts(mlx_strerror(mlx_errno));
-// 			return(EXIT_FAILURE);
-// 		}
-// 		if (!(image = mlx_new_image(mlx, 500, 500)))
-// 		{
-// 			mlx_close_window(mlx);
-// 			puts(mlx_strerror(mlx_errno));
-// 			return(EXIT_FAILURE);
-// 		}
-// 		if (mlx_image_to_window(mlx, image, 0, 0) == -1)
-// 		{
-// 			mlx_close_window(mlx);
-// 			puts(mlx_strerror(mlx_errno));
-// 			return(EXIT_FAILURE);
-// 		}
-
-// 		mlx_loop_hook(mlx, ft_randomize, mlx);
-// 		mlx_loop_hook(mlx, ft_hook, mlx);
-
-// 		mlx_loop(mlx);
-// 		mlx_terminate(mlx);
-// 	}
-// 	return (EXIT_SUCCESS);
-// }

@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 13:41:01 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 19:22:34 by hiennguy         ###   ########.fr       */
+/*   Created: 2025/02/18 19:51:22 by hiennguy          #+#    #+#             */
+/*   Updated: 2025/02/18 19:56:28 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+double	ft_atof(const char *str)
 {
-	size_t	length;
+	double	result_1;
+	double	result_2;
+	char	*c;
+	int		len;
 
-	length = ft_strlen(s);
-	write(fd, s, length);
+	c = (char *)str;
+	result_1 = (double)ft_atoi(c);
+	while (*c && *c != '.')
+		c++;
+	if (*c == '.')
+		c++;
+	result_2 = (double)ft_atoi(c);
+	len = ft_strlen(c);
+	while (len--)
+		result_2 /= 10;
+	if (result_1 >= 0)
+		return (result_1 + result_2);
+	else
+		return (result_1 + (-result_2));
 }

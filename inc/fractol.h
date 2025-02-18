@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 15:54:48 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:12:29 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,28 @@
 #include "MLX42.h"
 #include "libft.h"
 
-#define WIDTH 512
-#define HEIGHT 512
+# define WIDTH 800
+# define HEIGHT 800
+# define MAX_ITERATIONS 100
 
-static mlx_image_t* image;
+typedef struct s_complex
+{
+	double		real;
+	double		imag;
+}				t_complex;
 
-// typedef struct s_fractol
-// {
-
-// }
+typedef struct s_fractol
+{
+	mlx_t		*mlx;
+	mlx_image_t	*image;
+	char		*f_type;
+	t_complex	min;
+	t_complex	max;
+	t_complex	julia_c;
+}				t_fractol;
 
 /* ===================== INPUT PARSING & INIT ===================== */
-
+void	init_fractol(t_fractol *fractol, char **argv);
 
 /* ===================== FOR UTILS ===================== */
 

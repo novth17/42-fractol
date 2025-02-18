@@ -3,7 +3,7 @@ NAME = libft.a
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 # Source and Object Files
 SOURCES = src/ft_is/ft_isalnum.c \
@@ -53,6 +53,7 @@ SOURCES = src/ft_is/ft_isalnum.c \
           src/ft_string/ft_strtrim.c \
           src/ft_string/ft_substr.c \
           src/ft_to/ft_atoi.c \
+		  src/ft_to/ft_atof.c \
           src/ft_to/ft_itoa.c \
           src/ft_to/ft_tolower.c \
           src/ft_to/ft_toupper.c \

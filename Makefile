@@ -12,7 +12,10 @@ LIBFT := $(LIBFT_DIR)/libft.a
 MLX42_DIR := libs/MLX42
 MLX42 := $(MLX42_DIR)/build/libmlx42.a
 
-SRCS =	src/main.c
+VPATH = src
+
+SRCS =	main.c \
+		init.c
 
 OBJS = $(SRCS:.c=.o)
 
