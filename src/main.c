@@ -44,44 +44,62 @@ void ft_hook(void* param)
 		image->instances[0].x += 5;
 }
 
-// -----------------------------------------------------------------------------
-
-int32_t main(int argc, char **argv)
+void	print_error(void)
 {
-	mlx_t* mlx;
+	ft_putstr_fd("Enter:\n./fractol mandelbrot OR \n./fractol julia <real_num><img_num>", 2);
+	exit(EXIT_FAILURE);
+}
 
-	//validate argument
-	if (argc < 2 || ft_strncmp(argv[1], "mandelbrot", 12) != 0)
+int main (int argc, char **argv)
+{
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
-		ft_putstr_fd("Invalid input", 2);
-		ft_putstr_fd("./fractol mandelbrot", 2);
+		printf("success");
+		
+
 	}
 	else
 	{
-		// Gotta error check this stuff
-		if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
-		{
-			puts(mlx_strerror(mlx_errno));
-			return(EXIT_FAILURE);
-		}
-		if (!(image = mlx_new_image(mlx, 500, 500)))
-		{
-			mlx_close_window(mlx);
-			puts(mlx_strerror(mlx_errno));
-			return(EXIT_FAILURE);
-		}
-		if (mlx_image_to_window(mlx, image, 0, 0) == -1)
-		{
-			mlx_close_window(mlx);
-			puts(mlx_strerror(mlx_errno));
-			return(EXIT_FAILURE);
-		}
-
-		mlx_loop_hook(mlx, ft_randomize, mlx);
-		mlx_loop_hook(mlx, ft_hook, mlx);
-
-		mlx_loop(mlx);
-		mlx_terminate(mlx);
+		print_error();
 	}
-	return (EXIT_SUCCESS);
 }
+
+// int32_t main(int argc, char **argv)
+// {
+// 	mlx_t* mlx;
+
+// 	//validate argument
+// 	if (argc < 2 || ft_strncmp(argv[1], "mandelbrot", 12) != 0)
+// 	{
+// 		ft_putstr_fd("Invalid input", 2);
+// 		ft_putstr_fd("./fractol mandelbrot", 2);
+// 	}
+// 	else
+// 	{
+// 		// Gotta error check this stuff
+// 		if (!(mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true)))
+// 		{
+// 			puts(mlx_strerror(mlx_errno));
+// 			return(EXIT_FAILURE);
+// 		}
+// 		if (!(image = mlx_new_image(mlx, 500, 500)))
+// 		{
+// 			mlx_close_window(mlx);
+// 			puts(mlx_strerror(mlx_errno));
+// 			return(EXIT_FAILURE);
+// 		}
+// 		if (mlx_image_to_window(mlx, image, 0, 0) == -1)
+// 		{
+// 			mlx_close_window(mlx);
+// 			puts(mlx_strerror(mlx_errno));
+// 			return(EXIT_FAILURE);
+// 		}
+
+// 		mlx_loop_hook(mlx, ft_randomize, mlx);
+// 		mlx_loop_hook(mlx, ft_hook, mlx);
+
+// 		mlx_loop(mlx);
+// 		mlx_terminate(mlx);
+// 	}
+// 	return (EXIT_SUCCESS);
+// }
