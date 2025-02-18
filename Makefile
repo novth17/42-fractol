@@ -15,7 +15,8 @@ MLX42 := $(MLX42_DIR)/build/libmlx42.a
 VPATH = src
 
 SRCS =	main.c \
-		init.c
+		init.c \
+		render.c
 
 OBJS = $(SRCS:.c=.o)
 

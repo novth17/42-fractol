@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 20:12:29 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/18 22:37:58 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ typedef struct s_fractol
 /* ===================== INPUT PARSING & INIT ===================== */
 void	init_fractol(t_fractol *fractol, char **argv);
 
-/* ===================== FOR UTILS ===================== */
+/* ===================== FOR DRAW ===================== */
+void	draw_mandelbrot(t_fractol *fractol);
 
 
 
