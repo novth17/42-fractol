@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 20:01:42 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 22:40:50 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/18 22:55:56 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,24 @@
 // 	return (iter);
 // }
 
-void	draw_mandelbrot(t_fractol *fractol)
+void draw_mandelbrot(t_fractol *fractol)
 {
-	int height = 0;
-	//int width = 0;
-	while (height < HEIGHT)
-	{
-		mlx_put_pixel(fractol->image, 0, height, 0xffFFFFFF);
-		height++;
-	}
+    int col;
+    int width;
+
+    col = 0;
+    while (col < HEIGHT)
+    {
+        width = 0;  // Reset width for each new row
+        while (width < WIDTH)
+        {
+            mlx_put_pixel(fractol->image, width, col, 0xffFFFFFF + width); // Use 'width' and 'col'
+            width++;
+        }
+        col++;
+    }
 }
+
 
 
 // void	render_fractol(t_fractol *fractol)
