@@ -18,9 +18,9 @@ static void	print_fractol(t_fractol *f)
 	printf("MLX Address: %p\n", (void *)f->mlx);
 	printf("Image Address: %p\n", (void *)f->image);
 	printf("Fractal Type: %s\n", f->f_type ? f->f_type : "NULL");
-	printf("Min Complex: (%.3f, %.3f)\n", f->min.real, f->min.imag);
-	printf("Max Complex: (%.3f, %.3f)\n", f->max.real, f->max.imag);
-	printf("Julia Constant: (%.3f, %.3f)\n", f->julia_c.real, f->julia_c.imag);
+	printf("Min Complex: (%.3Lf, %.3Lf)\n", f->min.real, f->min.imag);
+	printf("Max Complex: (%.3Lf, %.3Lf)\n", f->max.real, f->max.imag);
+	printf("Julia Constant: (%.3Lf, %.3Lf)\n", f->julia_c.real, f->julia_c.imag);
 	printf("===========================\n");
 }
 
@@ -33,11 +33,11 @@ int main (int argc, char **argv)
 
 		init_fractol(&fractol, argv);
 
-		//render_fractol(&fractol);
 
 		print_fractol(&fractol);
 
-		draw_mandelbrot(&fractol);
+		//render_fractol(&fractol);
+		render_mandelbrot(&fractol);
 
 		mlx_loop(fractol.mlx);
 		mlx_terminate(fractol.mlx);

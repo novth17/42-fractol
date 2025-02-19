@@ -16,7 +16,7 @@ VPATH = src
 
 SRCS =	main.c \
 		init.c \
-		render.c
+		mandelbrot.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 22:37:58 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:18:26 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 #include "MLX42.h"
 #include "libft.h"
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WINDOW_WIDTH 800
+# define WINDOW_HEIGHT 800
 # define MAX_ITERATIONS 100
 
 typedef struct s_complex
 {
-	double		real;
-	double		imag;
+	long double		real;
+	long double		imag;
 }				t_complex;
 
 typedef struct s_fractol
@@ -41,7 +41,7 @@ typedef struct s_fractol
 void	init_fractol(t_fractol *fractol, char **argv);
 
 /* ===================== FOR DRAW ===================== */
-void	draw_mandelbrot(t_fractol *fractol);
+void	render_mandelbrot(t_fractol *fractol);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:58:48 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 20:15:03 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:08:04 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static int	setup_mlx (t_fractol *fractol)
 {
-	fractol->mlx = mlx_init(WIDTH, HEIGHT, fractol->f_type, true);
+	fractol->mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, fractol->f_type, true);
 	if (!fractol->mlx)
 	{
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
 		return (EXIT_FAILURE);
 	}
-	fractol->image = mlx_new_image(fractol->mlx, WIDTH, HEIGHT);
+	fractol->image = mlx_new_image(fractol->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!fractol->image)
 	{
 		mlx_close_window(fractol->mlx);
