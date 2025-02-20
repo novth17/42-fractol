@@ -33,10 +33,9 @@ int main (int argc, char **argv)
 
 		init_fractol(&fractol, argv);
 
-
+		//render_fractol(&fractol);
 		print_fractol(&fractol);
 
-		//render_fractol(&fractol);
 		render_mandelbrot(&fractol);
 
 		mlx_loop(fractol.mlx);

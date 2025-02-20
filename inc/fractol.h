@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/19 14:18:26 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:55:08 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ typedef struct s_complex
 	long double		imag;
 }				t_complex;
 
+typedef struct s_color_scheme
+{
+	double	red_factor;
+	double	green_factor;
+	double	blue_factor;
+}			t_color_scheme;
+
+// typedef struct	s_color_scheme
+// {
+// 	t_color_elem lava;
+// 	t_color_elem icy_ocean;
+// 	t_color_elem rose;
+// }			t_color_scheme;
+
 typedef struct s_fractol
 {
 	mlx_t		*mlx;
@@ -35,13 +49,14 @@ typedef struct s_fractol
 	t_complex	min;
 	t_complex	max;
 	t_complex	julia_c;
+	t_color_scheme	current_color_scheme;
 }				t_fractol;
 
 /* ===================== INPUT PARSING & INIT ===================== */
 void	init_fractol(t_fractol *fractol, char **argv);
 
 /* ===================== FOR DRAW ===================== */
-void	render_mandelbrot(t_fractol *fractol);
+void render_mandelbrot(t_fractol *fractol);
 
 
 

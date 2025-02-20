@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 20:01:42 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/19 15:09:08 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:54:31 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,24 @@ static int	calculate_mandelbrot(t_complex c)
 	return (iter);
 }
 
-t_complex	pixel_to_coordinates(long double x, long double y)
+static t_complex	pixel_to_coordinates(long double x, long double y)
 {
 	t_complex	c;
 	c.real = (x - WINDOW_WIDTH / 2.0) * 4.0 / WINDOW_WIDTH;
 	c.imag = (y - WINDOW_HEIGHT / 2.0) * 4.0 / WINDOW_HEIGHT;
 	return c;
+}
+
+uint32_t	put_color_scheme(int iter)
+{
+	uint32_t pixel_color;
+	double t = (double)iter / MAX_ITERATIONS;
+
+	uint8_t r = (uint8_t)(9 * (1 - t) * t * t * t * 255);
+	uint8_t g = (uint8_t)(15 * (1 - t) * (1 - t) * t * t * 255);
+	uint8_t b = (uint8_t)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+	pixel_color = (255 << 24) | (r << 16) | (g << 8) | b;
+	return (pixel_color);
 }
 
 void render_mandelbrot(t_fractol *fractol)
@@ -49,7 +61,7 @@ void render_mandelbrot(t_fractol *fractol)
     long double y;
 	t_complex	c;
 	int			iter;
-	uint8_t		color;
+	uint32_t	pixel_color;
 
     x = 0;
     while (x < WINDOW_WIDTH)
@@ -59,12 +71,7 @@ void render_mandelbrot(t_fractol *fractol)
         {
 			c = pixel_to_coordinates(x, y);
 			iter = calculate_mandelbrot(c);
-			if (iter == MAX_ITERATIONS)
-				color = 0;
-			else
-				color = (iter * 255) / MAX_ITERATIONS;
-
-			uint32_t pixel_color = (255 << 23) | (color << 16) | (color << 9) | color;
+			pixel_color = put_color_scheme(iter);
             mlx_put_pixel(fractol->image, x, y, pixel_color);
             y++;
         }
