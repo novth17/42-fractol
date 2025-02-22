@@ -37,7 +37,7 @@ int main (int argc, char **argv)
 		print_fractol(&fractol);
 
 		render_mandelbrot(&fractol);
-
+		
 		mlx_loop(fractol.mlx);
 		mlx_terminate(fractol.mlx);
 	}

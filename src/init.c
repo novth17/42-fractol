@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:58:48 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/19 14:08:04 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/22 23:34:41 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int	setup_mlx (t_fractol *fractol)
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
 		return (EXIT_FAILURE);
 	}
+	mlx_key_hook(fractol->mlx, &key_hook, fractol);
 	fractol->image = mlx_new_image(fractol->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!fractol->image)
 	{
@@ -33,6 +34,7 @@ static int	setup_mlx (t_fractol *fractol)
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
 		return(EXIT_FAILURE);
 	}
+	//mlx_set_setting(MLX_FULLSCREEN, true);
 	return (EXIT_SUCCESS);
 }
 
@@ -63,11 +65,13 @@ static void	init_min_max(t_fractol *fractol)
 	fractol->max.imag = 2;
 }
 
+
 void	init_fractol(t_fractol *fractol, char **argv)
 {
 	ft_bzero(fractol, sizeof(t_fractol));
 	init_type(fractol, argv);
 	init_min_max(fractol);
+	fractol->mode = 0;
 	if (setup_mlx(fractol) == EXIT_FAILURE)
 		exit(EXIT_FAILURE);
 }

@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"fractol.h": "c",
-		"random": "c"
+		"random": "c",
+		"mlx42_int.h": "c"
 	}
 }

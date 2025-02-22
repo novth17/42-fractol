@@ -4,7 +4,7 @@ CC      = cc
 
 INCLUDE := -Iinc -Ilibs/libft/inc -Ilibs/MLX42/include/MLX42
 
-CFLAGS  = $(INCLUDE) -Wall -Wextra -Werror
+CFLAGS  = $(INCLUDE) -Wall -Wextra -Werror -O3
 
 LIBFT_DIR := libs/libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -16,7 +16,8 @@ VPATH = src
 
 SRCS =	main.c \
 		init.c \
-		mandelbrot.c \
+		hook.c \
+		mandelbrot.c
 
 OBJS = $(SRCS:.c=.o)
 
