@@ -1,10 +1,16 @@
-// -----------------------------------------------------------------------------
-// Codam Coding College, Amsterdam @ 2022-2023 by W2Wizard.
-// See README in the root project for more information.
-// -----------------------------------------------------------------------------
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/23 17:06:46 by hiennguy          #+#    #+#             */
+/*   Updated: 2025/02/23 17:07:20 by hiennguy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
-
 
 static void	print_error(void)
 {
@@ -37,7 +43,7 @@ int main (int argc, char **argv)
 		print_fractol(&fractol);
 
 		render_mandelbrot(&fractol);
-		
+
 		mlx_loop(fractol.mlx);
 		mlx_terminate(fractol.mlx);
 	}
