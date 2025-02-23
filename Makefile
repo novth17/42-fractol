@@ -18,6 +18,7 @@ SRCS =	main.c \
 		init.c \
 		hook.c \
 		color.c \
+		julia.c \
 		mandelbrot.c
 
 OBJS = $(SRCS:.c=.o)

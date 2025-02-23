@@ -6,18 +6,18 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:55:24 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/23 17:08:48 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/23 20:04:56 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static uint32_t color_mode_purple(int iter)
+static uint32_t color_mode_green(int iter)
 {
     double t = (double)iter / MAX_ITERATIONS;
-    uint8_t r = (uint8_t)(9 * (1 - t) * (1 - t) * (1 - t) * t * 255);
-    uint8_t g = (uint8_t)(11 * (1 - t) * (1 - t) * t * t * 255);
-    uint8_t b = (uint8_t)(6 * (10 - t));
+    uint8_t b = (uint8_t)(9 * (1 - t) * t * t * t * 255);
+    uint8_t r = (uint8_t)(15 * (1 - t) * (1 - t) * t * t * 255);
+    uint8_t g = (uint8_t)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
 
     return (255 << 24) | (b << 16) | (g << 8) | r;
 }
@@ -53,9 +53,10 @@ static uint32_t color_mode_red(int iter)
     return (255 << 24) | (b << 16) | (g << 8) | r;
 }
 
-uint32_t put_color_scheme(int iter, int mode) {
+uint32_t put_color_scheme(int iter, int mode)
+{
     if (mode == 1)
-        return color_mode_purple(iter);
+        return color_mode_green(iter);
     else if (mode == 2)
         return color_mode_blue(iter);
     else if (mode == 3)

@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:51:22 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/18 19:56:28 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:57:29 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,29 @@
 
 double	ft_atof(const char *str)
 {
-	double	result_1;
-	double	result_2;
-	char	*c;
-	int		len;
+	double	result;
+	int		sign;
+	double	decimal_count;
 
-	c = (char *)str;
-	result_1 = (double)ft_atoi(c);
-	while (*c && *c != '.')
-		c++;
-	if (*c == '.')
-		c++;
-	result_2 = (double)ft_atoi(c);
-	len = ft_strlen(c);
-	while (len--)
-		result_2 /= 10;
-	if (result_1 >= 0)
-		return (result_1 + result_2);
-	else
-		return (result_1 + (-result_2));
+	result = 0.0;
+	sign = 1;
+	decimal_count = 1;
+	if (str == NULL)
+		return (0.0);
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		result = result * 10 + (*str++ - '0');
+	if (*str == '.')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + (*str++ - '0');
+		decimal_count *= 10;
+	}
+	return ((result / decimal_count) * sign);
 }
