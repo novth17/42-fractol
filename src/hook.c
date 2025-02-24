@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:59:28 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 12:16:03 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:54:32 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	esc_key_func(mlx_key_data_t keydata, t_fractol *fractol)
 	}
 }
 
-void mouse_scroll_hook(double xdelta, double ydelta, void *param)
+void	mouse_scroll_hook(double xdelta, double ydelta, void *param)
 {
     (void)xdelta;
 

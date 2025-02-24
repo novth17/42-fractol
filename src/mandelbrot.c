@@ -6,13 +6,13 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 20:01:42 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 12:11:57 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:32:45 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	calculate_mandelbrot(t_complex c)
+static int	calculate_mandelbrot(t_fractol *fractol, t_complex c)
 {
 	int			iter;
 	double		tmp_real;
@@ -20,7 +20,7 @@ static int	calculate_mandelbrot(t_complex c)
 	t_complex z = {0.0, 0.0};
 	iter = 0;
 
-	while (inside_radius(z) && iter < MAX_ITERATIONS)
+	while (inside_radius(z) && iter < fractol->max_iter)
 	{
 		tmp_real = z.real * z.real - z.imag * z.imag + c.real;
 		z.imag = 2.0 * z.real * z.imag + c.imag;
@@ -45,8 +45,8 @@ void render_mandelbrot(t_fractol *fractol)
         while (y < WINDOW_HEIGHT)
         {
 			c = pixel_to_coordinates(fractol, x, y);
-			fractol->iter = calculate_mandelbrot(c);
-			pixel_color = put_color_scheme(fractol->iter, fractol->mode);
+			fractol->iter = calculate_mandelbrot(fractol, c);
+			pixel_color = put_color_scheme(fractol, fractol->iter, fractol->mode);
 			((uint32_t *)fractol->image->pixels)[(((uint32_t)y * fractol->image->width) + (uint32_t)x)] = pixel_color;
             y++;
         }

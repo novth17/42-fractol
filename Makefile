@@ -27,6 +27,9 @@ OBJS = $(SRCS:.c=.o)
 all: $(MLX42) $(LIBFT) $(NAME)
 
 $(MLX42):
+	@if [ ! -d "$(MLX42_DIR)" ]; then \
+		cd libs && git clone https://github.com/codam-coding-college/MLX42.git; \
+	fi
 	@cmake $(MLX42_DIR) -B $(MLX42_DIR)/build && $(MAKE) -C $(MLX42_DIR)/build -j4
 
 $(LIBFT):

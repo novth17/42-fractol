@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 12:12:54 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:29:32 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
-# define MAX_ITERATIONS 100
+# define MAX_ITERATIONS 500
 
 typedef enum	e_set_name
 {
@@ -55,7 +55,7 @@ void		init_fractol(t_fractol *fractol, char **argv);
 void		render_mandelbrot(t_fractol *fractol);
 void		render_julia(t_fractol *fractol);
 void		render_fractol(t_fractol *fractol);
-uint32_t	put_color_scheme(int iter, int mode);
+uint32_t	put_color_scheme(t_fractol *fractol, int iter, int mode);
 
 /* ===================== FOR HOOK ===================== */
 void		key_hook (mlx_key_data_t key_data, void *param);
