@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:58:48 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/23 19:38:22 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/23 21:19:27 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static int	setup_mlx (t_fractol *fractol)
 		return (EXIT_FAILURE);
 	}
 	mlx_key_hook(fractol->mlx, &key_hook, fractol);
+	mlx_scroll_hook(fractol->mlx, &mouse_scroll_hook, fractol);
+
 
 	fractol->image = mlx_new_image(fractol->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!fractol->image)
@@ -39,7 +41,7 @@ static int	setup_mlx (t_fractol *fractol)
 		return(EXIT_FAILURE);
 	}
 	if (mlx_image_to_window(fractol->mlx, fractol->image, 0, 0) == -1)
-	
+
 	{
 		mlx_close_window(fractol->mlx);
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);

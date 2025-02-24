@@ -18,6 +18,7 @@ SRCS =	main.c \
 		init.c \
 		hook.c \
 		color.c \
+		calculate.c \
 		julia.c \
 		mandelbrot.c
 
