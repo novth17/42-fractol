@@ -6,13 +6,13 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:06:46 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/23 19:47:33 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:34:17 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	print_error(void)
+void	print_error(void)
 {
 	ft_putstr_fd("Enter:\n./fractol mandelbrot OR \n./fractol julia <real_num><img_num>", 2);
 	exit(EXIT_FAILURE);
@@ -53,24 +53,22 @@ void	render_fractol(t_fractol *fractol)
 		render_julia(fractol);
 }
 
-
-int main (int argc, char **argv)
+void fractol(char **argv)
 {
-	t_fractol	fractol;
+    t_fractol fractol;
 
-	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) || (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
-	{
-		write(1 ,"success", 8);
+    init_fractol(&fractol, argv);
+    print_fractol(&fractol);
+    render_fractol(&fractol);
+    mlx_loop(fractol.mlx);
+    mlx_terminate(fractol.mlx);
+}
 
-		init_fractol(&fractol, argv);
-		print_fractol(&fractol);
-		render_fractol(&fractol);
-		mlx_loop(fractol.mlx);
-		mlx_terminate(fractol.mlx);
-	}
-	else
-	{
+int main(int argc, char **argv)
+{
+    if (!validate_input(argc, argv))
 		print_error();
-	}
-	return (EXIT_SUCCESS);
+    write(1, "success\n", 8);
+    fractol(argv);
+    return (EXIT_SUCCESS);
 }

@@ -20,6 +20,7 @@ SRCS =	main.c \
 		color.c \
 		calculate.c \
 		julia.c \
+		validate_input.c \
 		mandelbrot.c
 
 OBJS = $(SRCS:.c=.o)

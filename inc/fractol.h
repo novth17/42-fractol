@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 14:29:32 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:32:57 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_fractol
 
 /* ===================== INPUT PARSING & INIT ===================== */
 void		init_fractol(t_fractol *fractol, char **argv);
+int			validate_input(int argc, char **argv);
 
 /* ===================== FOR DRAW ===================== */
 void		render_mandelbrot(t_fractol *fractol);
@@ -67,7 +68,7 @@ t_complex	pixel_to_coordinates(t_fractol *fractol, long double x, long double y)
 void		zoom(t_fractol *fractol, long double zoom_factor, long double c_real, long double c_imag);
 
 
-/* ===================== FOR FREE =================== */
-
+/* ===================== FOR ERROR =================== */
+void	print_error(void);
 
 #endif
