@@ -2,8 +2,11 @@
 
 static int is_valid_format(const char *str)
 {
-    int i = 0, dot_count = 0;
-
+    int i;
+    int dot_count;
+    
+    dot_count = 0;
+    i = 0;
     if (!str || !*str)
         return (0);
     if (str[i] == '-' || str[i] == '+') 
@@ -27,8 +30,9 @@ static int is_valid_format(const char *str)
 
 static int is_valid_double(const char *str)
 {
-    int decimal_places = 0;
-
+    int decimal_places;
+    
+    decimal_places = 0;
     if (!is_valid_format(str))
         return (0);
     while (*str && *str != '.')
