@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:06:46 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/28 14:28:52 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:11:57 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	print_fractol(t_fractol *f)
         return;
     }
 
-    printf("=== t_fractol Structure ===\n");
+    printf("=== Set Information ===\n");
     printf("MLX Address: %p\n", (void *)f->mlx);
     printf("Image Address: %p\n", (void *)f->image);
 
@@ -30,12 +30,9 @@ static void	print_fractol(t_fractol *f)
     else if (f->f_name == MANDELBROT) fractol_name = "Mandelbrot";
 
     printf("Fractal Type: %s\n", fractol_name);
-
     printf("Min Complex: (%.6Lf, %.6Lf)\n", f->min.real, f->min.imag);
     printf("Max Complex: (%.6Lf, %.6Lf)\n", f->max.real, f->max.imag);
     printf("Julia Constant: (%.6Lf, %.6Lf)\n", f->julia_c.real, f->julia_c.imag);
-    printf("Mode: %d\n", f->mode);
-    printf("Iterations: %d\n", f->iter);
     printf("===========================\n");
 }
 
@@ -65,7 +62,7 @@ int main(int argc, char **argv)
 		print_guide();
  		exit(EXIT_FAILURE);
 	}
-	write(1, "success\n", 8);
+	ft_putstr_fd("Initializing beautiful set... Here you go!\n", 1);
     fractol(argv);
     return (EXIT_SUCCESS);
 }

@@ -62,12 +62,12 @@ int validate_input(int argc, char **argv)
     {
         if (!is_valid_double(argv[2]) || !is_valid_double(argv[3]))
         {
-            write(2, "Error: Invalid Julia set parameters. Expected two valid floating-point numbers (from -2 to 2, max 8 decimal places)\n\n", 118);
+            ft_putstr_fd("Error: Invalid Julia set parameters. Expected two valid floating-point numbers (from -2 to 2, max 8 decimal places)\n\n", 2);
             return (0);
         }
         return (1);
     }
-    write(2, "Error: Incorrect input format. Please read the guide!\n\n", 56);
+    ft_putstr_fd("Error: Incorrect input format. Please read the guide!\n\n", 2);
     return (0);
 }
 
