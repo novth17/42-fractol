@@ -57,9 +57,9 @@ static int is_valid_double(const char *str)
 
 int validate_input(int argc, char **argv)
 {
-    if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+    if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11))
         return (1);
-    if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+    if (argc == 4 && !ft_strncmp(argv[1], "julia", 6))
     {
         if (is_valid_double(argv[2]) && is_valid_double(argv[3]))
             return (1);
