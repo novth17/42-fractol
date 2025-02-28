@@ -34,7 +34,10 @@ static int is_valid_double(const char *str)
     
     decimal_places = 0;
     if (!is_valid_format(str))
+    {
+        write(2, "Error: Invalid double format!\n\n", 32);
         return (0);
+    }
     while (*str && *str != '.')
         str++;
     if (*str == '.')
@@ -43,7 +46,10 @@ static int is_valid_double(const char *str)
     {
         decimal_places++;
         if (decimal_places > 8)
+        {
+            write(2, "Error: Julia set out of bound\n\n", 32);
             return (0);
+        }
         str++;
     }
     return (1);
@@ -57,7 +63,6 @@ int validate_input(int argc, char **argv)
     {
         if (is_valid_double(argv[2]) && is_valid_double(argv[3]))
             return (1);
-        write(2, "Error: Invalid Julia set parameters. Expected two valid floating-point numbers.\n", 79);
     }
     return (0);
 }
