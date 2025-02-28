@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:06:46 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/26 16:34:17 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:50:42 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	print_error(void)
 {
-	ft_putstr_fd("Enter:\n./fractol mandelbrot OR \n./fractol julia <real_num><img_num>", 2);
-	exit(EXIT_FAILURE);
-}
+	print_guide();
+ 	exit(EXIT_FAILURE);
+ }
 
 static void	print_fractol(t_fractol *f)
 {
@@ -67,8 +67,10 @@ void fractol(char **argv)
 int main(int argc, char **argv)
 {
     if (!validate_input(argc, argv))
+	{
 		print_error();
-    write(1, "success\n", 8);
+	}
+	write(1, "success\n", 8);
     fractol(argv);
     return (EXIT_SUCCESS);
 }

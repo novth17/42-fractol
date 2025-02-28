@@ -59,7 +59,5 @@ int validate_input(int argc, char **argv)
             return (1);
         write(2, "Error: Invalid Julia set parameters. Expected two valid floating-point numbers.\n", 79);
     }
-    else
-        print_error();
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/26 16:32:57 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:46:08 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
-# define MAX_ITERATIONS 500
+//# define MAX_ITERATIONS 500
 
 typedef enum	e_set_name
 {
@@ -69,6 +69,6 @@ void		zoom(t_fractol *fractol, long double zoom_factor, long double c_real, long
 
 
 /* ===================== FOR ERROR =================== */
-void	print_error(void);
+void	print_guide(void);
 
 #endif

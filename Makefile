@@ -19,6 +19,7 @@ SRCS =	main.c \
 		hook.c \
 		color.c \
 		calculate.c \
+		guide.c \
 		julia.c \
 		validate_input.c \
 		mandelbrot.c
