@@ -6,17 +6,11 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:06:46 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/28 13:50:42 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:28:52 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	print_error(void)
-{
-	print_guide();
- 	exit(EXIT_FAILURE);
- }
 
 static void	print_fractol(t_fractol *f)
 {
@@ -68,7 +62,8 @@ int main(int argc, char **argv)
 {
     if (!validate_input(argc, argv))
 	{
-		print_error();
+		print_guide();
+ 		exit(EXIT_FAILURE);
 	}
 	write(1, "success\n", 8);
     fractol(argv);
