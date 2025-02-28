@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:08:55 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 14:16:16 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:51:22 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	inside_radius(t_complex z)
 t_complex	pixel_to_coordinates(t_fractol *fractol, long double x, long double y)
 {
 	t_complex	c;
-	if (fractol->f_name == JULIA && x == 0)
-		y = (-y);
+
+	y = WINDOW_HEIGHT - y;
 	c.real = fractol->min.real + (x / WINDOW_WIDTH) * (fractol->max.real - fractol->min.real);
 	c.imag = fractol->min.imag + (y / WINDOW_HEIGHT) * (fractol->max.imag - fractol->min.imag);
 	return c;

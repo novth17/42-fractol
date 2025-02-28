@@ -18,7 +18,7 @@ static int is_valid_format(const char *str)
         if (str[i] == '.')
         {
             dot_count++;
-            if (dot_count > 1)
+            if (dot_count > 1 || !ft_isdigit(str[i + 1]))
                 return (0);
         }
         else if (!ft_isdigit(str[i]))
