@@ -3,6 +3,7 @@
 .DS_Store
 fractol
 libs/MLX42
+.fractol_bonus
 
 # Object files
 *.o
