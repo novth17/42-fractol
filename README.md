@@ -85,7 +85,9 @@ Bitwise operations are used to manipulate colors efficiently, making smooth grad
 
 ## 💡 Lessons Learned
 Complex numbers are actually fun when they make pretty pictures! 🤓
+
 Optimization is key—fractal rendering can be heavy, it takes some hard work to make it smoother.
+
 Colors + bit shifting = absolute magic.
 
 
