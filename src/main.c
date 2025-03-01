@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:06:46 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/03/01 15:06:19 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:10:57 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	render_fractol(t_fractol *fractol)
 		render_julia(fractol);
 }
 
-void	fractol(char **argv)
+static void	fractol(char **argv)
 {
 	t_fractol	fractol;
 

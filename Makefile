@@ -1,5 +1,4 @@
 NAME    = fractol
-BONUS_NAME = .fractol_bonus
 
 CC      = cc
 
@@ -24,22 +23,10 @@ SRCS =	src/calculate.c \
 		src/mandelbrot.c \
 		src/validate_input.c
 
-SRCS_BONUS = 	src_bonus/calculate_bonus.c \
-				src_bonus/color_bonus.c \
-				src_bonus/guide_bonus.c \
-				src_bonus/hook_keyboard_bonus.c \
-				src_bonus/hook_mouse_bonus.c \
-				src_bonus/init_bonus.c \
-				src_bonus/julia_bonus.c \
-				src_bonus/main_bonus.c \
-				src_bonus/mandelbrot_bonus.c \
-				src_bonus/validate_input_bonus.c
 
 OBJS = $(SRCS:.c=.o)
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
-bonus: $(BONUS_NAME)
 
 $(MLX42):
 	@if [ ! -d "$(MLX42_DIR)" ]; then \
@@ -54,20 +41,15 @@ $(NAME): $(MLX42) $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX42) -ldl -lglfw -pthread -lm -o $(NAME)
 	@echo "Executable '$(NAME)' created successfully!"
 
-$(BONUS_NAME): $(MLX42) $(LIBFT) $(OBJS_BONUS)
-	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) $(MLX42) -ldl -lglfw -pthread -lm -o $(NAME)
-	@echo "Executable '$(NAME)' created successfully!"
-	@touch .fractol_bonus
 
 %.o: %.c
 	@echo "Compiling $< to create $@"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -f $(OBJS) 
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@rm -rf $(MLX42_DIR)/build
-	@rm -f $(BONUS_NAME)
 	@echo "All object files removed."
 
 fclean: clean
@@ -79,8 +61,5 @@ re: fclean all
 
 opt: CFLAGS += -O3 -ffast-math -flto
 opt: all
-
-opt_bonus: CFLAGS += -O3 -ffast-math -flto
-opt_bonus: bonus
 
 .PHONY: all clean fclean re

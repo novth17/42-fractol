@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:25:39 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/03/01 15:07:42 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 17:43:43 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void	key_hook(mlx_key_data_t key_data, void *param)
 	shift_horizontal(key_data, fractol);
 	shift_vertical(key_data, fractol);
 	esc_key_func(key_data, fractol);
-	if (mlx_is_key_down(fractol->mlx, MLX_KEY_KP_SUBTRACT)
+	if (key_data.key == MLX_KEY_KP_SUBTRACT
 		&& fractol->max_iter > 5)
 	{
 		fractol->max_iter *= 0.9;
 		if (fractol->max_iter <= 5)
 			fractol->max_iter = 5;
 	}
-	if (mlx_is_key_down(fractol->mlx, MLX_KEY_KP_ADD)
+	if (key_data.key == MLX_KEY_KP_ADD
 		&& fractol->max_iter < 500)
 	{
 		fractol->max_iter *= 1.2;

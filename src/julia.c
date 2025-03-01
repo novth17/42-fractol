@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:09:35 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/03/01 14:37:10 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 18:23:21 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	calculate_julia(t_fractol *fractol, t_complex z, t_complex c)
 	double	tmp_real;
 
 	iter = 0;
+	if (fractol->f_name == JULIA && c.real == 0)
+		c.imag = -c.imag;
 	while (inside_radius(z) && iter < fractol->max_iter)
 	{
 		tmp_real = z.real * z.real - z.imag * z.imag + c.real;
