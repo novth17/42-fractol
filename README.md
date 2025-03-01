@@ -36,9 +36,6 @@ Clone this repo and compile it with:
 ```bash
 make opt
 
-make opt
-
-
 🌀 Running the Program
 
 # Mandelbrot Usage:
