@@ -6,13 +6,13 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:25:39 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/03/01 14:25:41 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:07:42 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void color_mode_hook(mlx_key_data_t key_data, t_fractol *fractol)
+static void	color_mode_hook(mlx_key_data_t key_data, t_fractol *fractol)
 {
 	if (key_data.key == MLX_KEY_R)
 		fractol->mode = 0;
@@ -34,50 +34,51 @@ static void	esc_key_func(mlx_key_data_t keydata, t_fractol *fractol)
 	}
 }
 
-static void shift_horizontal(mlx_key_data_t key_data, t_fractol *fractol)
+static void	shift_horizontal(mlx_key_data_t key_data, t_fractol *fractol)
 {
-    double shift_real = (fractol->max.real - fractol->min.real) * 0.1;
+	double	shift_real;
 
-    if (key_data.key == MLX_KEY_LEFT && key_data.action == MLX_PRESS)
-    {
-        fractol->min.real -= shift_real;
-        fractol->max.real -= shift_real;
-    }
-    else if (key_data.key == MLX_KEY_RIGHT && key_data.action == MLX_PRESS)
-    {
-        fractol->min.real += shift_real;
-        fractol->max.real += shift_real;
-    }
+	shift_real = (fractol->max.real - fractol->min.real) * 0.1;
+	if (key_data.key == MLX_KEY_LEFT && key_data.action == MLX_PRESS)
+	{
+		fractol->min.real -= shift_real;
+		fractol->max.real -= shift_real;
+	}
+	else if (key_data.key == MLX_KEY_RIGHT && key_data.action == MLX_PRESS)
+	{
+		fractol->min.real += shift_real;
+		fractol->max.real += shift_real;
+	}
 	render_fractol(fractol);
 }
 
-static void shift_vertical(mlx_key_data_t key_data, t_fractol *fractol)
+static void	shift_vertical(mlx_key_data_t key_data, t_fractol *fractol)
 {
-    double shift_imag = (fractol->max.imag - fractol->min.imag) * 0.1;
+	double	shift_imag;
 
-    if (key_data.key == MLX_KEY_UP && key_data.action == MLX_PRESS)
-    {
-        fractol->min.imag += shift_imag;
-        fractol->max.imag += shift_imag;
-    }
-    else if (key_data.key == MLX_KEY_DOWN && key_data.action == MLX_PRESS)
-    {
-        fractol->min.imag -= shift_imag;
-        fractol->max.imag -= shift_imag;
-    }
+	shift_imag = (fractol->max.imag - fractol->min.imag) * 0.1;
+	if (key_data.key == MLX_KEY_UP && key_data.action == MLX_PRESS)
+	{
+		fractol->min.imag += shift_imag;
+		fractol->max.imag += shift_imag;
+	}
+	else if (key_data.key == MLX_KEY_DOWN && key_data.action == MLX_PRESS)
+	{
+		fractol->min.imag -= shift_imag;
+		fractol->max.imag -= shift_imag;
+	}
 	render_fractol(fractol);
 }
 
-void key_hook(mlx_key_data_t key_data, void *param)
+void	key_hook(mlx_key_data_t key_data, void *param)
 {
-	t_fractol *fractol;
+	t_fractol	*fractol;
 
 	fractol = (t_fractol *)param;
-	color_mode_hook (key_data, fractol);
+	color_mode_hook(key_data, fractol);
 	shift_horizontal(key_data, fractol);
-    shift_vertical(key_data, fractol);
+	shift_vertical(key_data, fractol);
 	esc_key_func(key_data, fractol);
-
 	if (mlx_is_key_down(fractol->mlx, MLX_KEY_KP_SUBTRACT)
 		&& fractol->max_iter > 5)
 	{
@@ -88,7 +89,7 @@ void key_hook(mlx_key_data_t key_data, void *param)
 	if (mlx_is_key_down(fractol->mlx, MLX_KEY_KP_ADD)
 		&& fractol->max_iter < 500)
 	{
-		fractol->max_iter *= 1.5;
+		fractol->max_iter *= 1.2;
 		if (fractol->max_iter >= 500)
 			fractol->max_iter = 500;
 	}

@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:58:48 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/03/01 11:25:41 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:36:29 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 static const char	*get_fractal_name(t_set_name f_name)
 {
-    if (f_name == JULIA)
-		return "Julia Set";
-    if (f_name == MANDELBROT)
-		return "Mandelbrot Set";
-    return "Unknown Fractal";
+	if (f_name == JULIA)
+		return ("Julia Set");
+	if (f_name == MANDELBROT)
+		return ("Mandelbrot Set");
+	return ("Unknown Fractal");
 }
 
-static int	setup_mlx (t_fractol *fractol)
+static int	setup_mlx(t_fractol *fractol)
 {
-	fractol->mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, get_fractal_name(fractol->f_name), true);
+	fractol->mlx = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT,
+			get_fractal_name(fractol->f_name), true);
 	if (!fractol->mlx)
 	{
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
@@ -31,20 +32,18 @@ static int	setup_mlx (t_fractol *fractol)
 	}
 	mlx_key_hook(fractol->mlx, &key_hook, fractol);
 	mlx_scroll_hook(fractol->mlx, &mouse_scroll_hook, fractol);
-
 	fractol->image = mlx_new_image(fractol->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!fractol->image)
 	{
 		mlx_close_window(fractol->mlx);
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	if (mlx_image_to_window(fractol->mlx, fractol->image, 0, 0) == -1)
-
 	{
 		mlx_close_window(fractol->mlx);
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
-		return(EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	}
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
 	mlx_set_window_size(fractol->mlx, 1024, 1024);

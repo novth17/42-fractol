@@ -27,7 +27,7 @@ SRCS =	main.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(MLX42) $(LIBFT) $(NAME)
+all: $(NAME)
 
 $(MLX42):
 	@if [ ! -d "$(MLX42_DIR)" ]; then \
