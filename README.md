@@ -33,6 +33,9 @@ Fract-ol is a **42 school project** that challenges you to generate and manipula
 
 Clone this repo and compile it with: 
 
+```bash
+make opt
+
 make opt
 
 
@@ -69,6 +72,8 @@ Edit
  ➕ Keypad + / -  ➜ Increase or decrease iterations  
  🎨 Arrow Keys ->>> R, G, B, W   ➜ Switch color modes (Red, Green, Blue, White)  
 ────────────────────────────────────
+```
+
 #🧠 How It Works
 Each pixel in the window represents a complex number. The number of iterations determines the color, creating stunning gradients! 🎨
 
@@ -81,7 +86,3 @@ Optimization is key—fractal rendering can be heavy, but I worked hard to keep 
 Colors + bit shifting = absolute magic.
 
 
-#🎭 Final Thoughts
-Fractals are a perfect blend of math, code, and art. If you love visually satisfying projects and getting lost in infinite patterns, this is for you!
-
-Enjoy the fractal madness! 🌌✨
