@@ -73,12 +73,14 @@ Edit
  🎨 Arrow Keys ->>> R, G, B, W   ➜ Switch color modes (Red, Green, Blue, White)  
 ────────────────────────────────────
 ```
+---
 
 #🧠 How It Works
 Each pixel in the window represents a complex number. The number of iterations determines the color, creating stunning gradients! 🎨
 
 Bitwise operations are used to manipulate colors efficiently, making smooth gradients appear like magic! ✨
 
+---
 
 #💡 Lessons Learned
 Complex numbers are actually fun when they make pretty pictures! 🤓
