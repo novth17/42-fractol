@@ -2,6 +2,7 @@
 *.d
 .DS_Store
 fractol
+libs/MLX42
 
 # Object files
 *.o
