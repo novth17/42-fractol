@@ -49,6 +49,7 @@ Values must be between -2.0 and 2.0.
 Decimal precision should be less than 9 digits to avoid out-of-bounds errors.
 
 
+
 📌 Hien's FAV Julia Set Parameters 😘💋
 
 ────────────────────────────────────
@@ -58,10 +59,10 @@ Decimal precision should be less than 9 digits to avoid out-of-bounds errors.
  🔹 -1.476  0       (Radio hardcore)
  🔹 -0.12  -0.77    (Puzzled bunnies)
 ────────────────────────────────────
+
+
+
 🎮 Controls
-mathematica
-Copy
-Edit
 ────────────────────────────────────
  🏁 ESC          ➜ Exit the program  
  🎯 Arrow Keys   ➜ Move the view (← ↑ ↓ →)  
