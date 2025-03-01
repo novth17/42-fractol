@@ -6,13 +6,13 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 16:55:24 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 14:29:18 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/02/24 20:56:30 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static uint32_t color_mode_green(t_fractol *fractol, int iter)
+static inline uint32_t color_mode_green(t_fractol *fractol, int iter)
 {
     double t = (double)iter / fractol->max_iter;
     uint8_t b = (uint8_t)(9 * (1 - t) * t * t * t * 255);
@@ -22,17 +22,16 @@ static uint32_t color_mode_green(t_fractol *fractol, int iter)
     return (255 << 24) | (b << 16) | (g << 8) | r;
 }
 
-static uint32_t color_mode_blue(t_fractol *fractol, int iter)
+static inline uint32_t color_mode_blue(t_fractol *fractol, int iter)
 {
     double t = (double)iter / fractol->max_iter;
     uint8_t r = (uint8_t)(9 * (1 - t) * t * t * t * 255);
     uint8_t g = (uint8_t)(15 * (1 - t) * (1 - t) * t * t * 255);
     uint8_t b = (uint8_t)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
-
     return (255 << 24) | (b << 16) | (g << 8) | r;
 }
 
-uint32_t color_mode_white(t_fractol *fractol, int iter)
+static inline uint32_t color_mode_white(t_fractol *fractol, int iter)
 {
 	double t = (double)iter / fractol->max_iter;
 
@@ -43,13 +42,12 @@ uint32_t color_mode_white(t_fractol *fractol, int iter)
 	return ((255 << 24) | (g_w << 8) | r_w);
 }
 
-static uint32_t color_mode_red(t_fractol *fractol, int iter)
+static inline uint32_t color_mode_red(t_fractol *fractol, int iter)
 {
     double t = (double)iter / fractol->max_iter;
     uint8_t b = (uint8_t)(9 * (1 - t) * t * t * t * 255);
     uint8_t g = (uint8_t)(15 * (1 - t) * (1 - t) * t * t * 255);
     uint8_t r = (uint8_t)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
-
     return (255 << 24) | (b << 16) | (g << 8) | r;
 }
 

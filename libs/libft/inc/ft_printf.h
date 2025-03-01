@@ -6,15 +6,14 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 15:22:27 by hiennguy          #+#    #+#             */
-/*   Updated: 2024/11/20 18:09:57 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:52:52 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stddef.h>
-# include <unistd.h>
+#include "libft.h"
 
 int		ft_print_char(int c);
 int		ft_print_hex_lower(unsigned long nb);

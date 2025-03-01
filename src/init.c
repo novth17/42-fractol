@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 16:58:48 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 14:37:20 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:25:41 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static int	setup_mlx (t_fractol *fractol)
 		ft_putstr_fd(mlx_strerror(mlx_errno), 2);
 		return(EXIT_FAILURE);
 	}
+	mlx_set_setting(MLX_STRETCH_IMAGE, true);
+	mlx_set_window_size(fractol->mlx, 1024, 1024);
 	return (EXIT_SUCCESS);
 }
 

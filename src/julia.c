@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:09:35 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 14:30:48 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:21:49 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static int	calculate_julia(t_fractol *fractol, t_complex z, t_complex c)
 
 void render_julia(t_fractol *fractol)
 {
-    long double x;
-    long double y;
+    double x;
+    double y;
 	t_complex	z;
 	uint32_t	pixel_color;
 

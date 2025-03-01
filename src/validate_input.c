@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_input.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 14:25:56 by hiennguy          #+#    #+#             */
+/*   Updated: 2025/03/01 14:25:58 by hiennguy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static int is_valid_format(const char *str)
 {
     int i;
     int dot_count;
-    
+
     dot_count = 0;
     i = 0;
     if (!str || !*str)
         return (0);
-    if (str[i] == '-' || str[i] == '+') 
+    if (str[i] == '-' || str[i] == '+')
         i++;
     if (!ft_isdigit(str[i]))
         return (0);
@@ -32,7 +44,7 @@ static int is_valid_double(const char *str)
 {
     double  value;
     int     decimal_places;
-    
+
     decimal_places = 0;
     if (!is_valid_format(str))
         return (0);
@@ -57,7 +69,7 @@ int validate_input(int argc, char **argv)
 {
     if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11))
         return (1);
-    
+
     if (argc == 4 && !ft_strncmp(argv[1], "julia", 6))
     {
         if (!is_valid_double(argv[2]) || !is_valid_double(argv[3]))

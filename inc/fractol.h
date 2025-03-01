@@ -6,20 +6,17 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:02:02 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/28 13:46:08 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:59:32 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-
-#include <stdio.h>
 #include "MLX42.h"
 #include "libft.h"
 
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 800
-//# define MAX_ITERATIONS 500
 
 typedef enum	e_set_name
 {
@@ -30,8 +27,8 @@ typedef enum	e_set_name
 
 typedef struct	s_complex
 {
-	long double		real;
-	long double		imag;
+	double		real;
+	double		imag;
 }				t_complex;
 
 typedef struct	s_fractol
@@ -64,11 +61,12 @@ void		mouse_scroll_hook(double xdelta, double ydelta, void *param);
 
 /* ===================== FOR CALCULATION =================== */
 int			inside_radius(t_complex z);
-t_complex	pixel_to_coordinates(t_fractol *fractol, long double x, long double y);
-void		zoom(t_fractol *fractol, long double zoom_factor, long double c_real, long double c_imag);
+t_complex	pixel_to_coordinates(t_fractol *fractol, double x, double y);
+void		zoom(t_fractol *fractol, double zoom_factor, double c_real, double c_imag);
 
 
 /* ===================== FOR ERROR =================== */
 void	print_guide(void);
+
 
 #endif

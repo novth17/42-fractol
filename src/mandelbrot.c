@@ -6,7 +6,7 @@
 /*   By: hiennguy <hiennguy@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 20:01:42 by hiennguy          #+#    #+#             */
-/*   Updated: 2025/02/24 14:32:45 by hiennguy         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:27:01 by hiennguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int	calculate_mandelbrot(t_fractol *fractol, t_complex c)
 
 void render_mandelbrot(t_fractol *fractol)
 {
-    long double x;
-    long double y;
+    double x;
+    double y;
 	t_complex	c;
 
 	uint32_t	pixel_color;

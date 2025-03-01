@@ -4,7 +4,7 @@ CC      = cc
 
 INCLUDE := -Iinc -Ilibs/libft/inc -Ilibs/MLX42/include/MLX42
 
-CFLAGS  = $(INCLUDE) -Wall -Wextra -Werror -O3
+CFLAGS  = $(INCLUDE) -Wall -Wextra -Werror
 
 LIBFT_DIR := libs/libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -16,7 +16,8 @@ VPATH = src
 
 SRCS =	main.c \
 		init.c \
-		hook.c \
+		hook_keyboard.c \
+		hook_mouse.c \
 		color.c \
 		calculate.c \
 		guide.c \
@@ -57,5 +58,8 @@ fclean: clean
 	@echo "Executable '$(NAME)' removed."
 
 re: fclean all
+
+opt: CFLAGS += -O3 -ffast-math -flto
+opt: all
 
 .PHONY: all clean fclean re
