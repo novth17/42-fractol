@@ -43,6 +43,8 @@ make opt
 
 # Julia Usage (Must have custom parameters):
 ./fractol julia [real_part] [imaginary_part]
+
+
 ⚠️ Julia Set Parameter Rules:
 [real_part] & [imaginary_part] must be doubles with a dot.
 Values must be between -2.0 and 2.0.
@@ -59,7 +61,7 @@ Decimal precision should be less than 9 digits to avoid out-of-bounds errors.
  🔹 -1.476  0       (Radio hardcore)
  🔹 -0.12  -0.77    (Puzzled bunnies)
 ────────────────────────────────────
-
+Example, try running: ./fractol julia 0 0.8
 
 
 🎮 Controls
