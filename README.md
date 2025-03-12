@@ -61,6 +61,7 @@ make opt
 
 🌀 Running the Program
 
+```
 # Mandelbrot Usage:
 ./fractol mandelbrot
 
