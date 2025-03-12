@@ -6,7 +6,12 @@ Welcome to **Fract-ol**, where math meets art, and chaos turns into mesmerizing 
 
 ## 🚀 What is Fract-ol?  
 
-Fract-ol is a **42 school project** that challenges you to generate and manipulate fractals using the **MLX42 graphics library**.  
+Fract-ol is a **42 school project** that challenges you to generate and manipulate fractals using the **MLX42 graphics library**. 
+
+# 🌌 Fract-ol Project
+
+Fract-ol is a project at **42 School** that involves generating beautiful fractals using **MLX42**. This README provides setup instructions and troubleshooting for common build issues.
+
 
 ### 🌀 Available Fractal Sets:  
 
@@ -15,8 +20,6 @@ Fract-ol is a **42 school project** that challenges you to generate and manipula
 
 - **Julia Set 🔮**  
   A customizable fractal where a tiny parameter shift changes everything!  
-
-- And maybe even more... who knows what cool patterns we’ll discover? 😏  
 
 ---
 
@@ -29,12 +32,32 @@ Fract-ol is a **42 school project** that challenges you to generate and manipula
 
 ---
 
-## ⚡ How to Run  
+## 🚀 Getting Started
 
-Clone this repo and compile it with: 
+#### 📌 Install CMake
+If you encounter an error like `/bin/sh: cmake: command not found`, install CMake using:
 
-```bash
+- **MacOS (Homebrew)**:
+  ```sh
+  brew install cmake
+  ```
+- **Ubuntu/Linux**:
+  ```sh
+  sudo apt update
+  sudo apt install cmake
+  ```
+- **Windows (WSL)**:
+  ```sh
+  sudo apt update
+  sudo apt install cmake
+  ```
+
+### ⚡ How to Build  
+Clone this repo, once dependencies are installed, compile the project as follows:
+
+```sh
 make opt
+```
 
 🌀 Running the Program
 
@@ -44,13 +67,10 @@ make opt
 # Julia Usage (Must have custom parameters):
 ./fractol julia [real_part] [imaginary_part]
 
-
 ⚠️ Julia Set Parameter Rules:
 [real_part] & [imaginary_part] must be doubles with a dot.
 Values must be between -2.0 and 2.0.
 Decimal precision should be less than 9 digits to avoid out-of-bounds errors.
-
-
 
 📌 Hien's FAV Julia Set Parameters 😘💋
 
@@ -89,5 +109,3 @@ Complex numbers are actually fun when they make pretty pictures! 🤓
 Optimization is key—fractal rendering can be heavy, it takes some hard work to make it smoother.
 
 Colors + bit shifting = absolute magic.
-
-
